@@ -1,0 +1,5 @@
+---
+- name: Install HaProxy Marathon Bridge
+  hosts: Haproxy-bridge
+  roles:
+    - Haproxy-marathon

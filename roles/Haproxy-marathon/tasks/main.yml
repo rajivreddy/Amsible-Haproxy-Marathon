@@ -1,0 +1,14 @@
+---
+- name: copy CDH5 repository (zookeeper-server)
+  copy: src=haproxy-marathon-bridge  dest=/haproxy-marathon-bridge.sh owner=root group=root mode=755
+  
+  
+- name: Installing HaProxy
+  command: sh /haproxy-marathon-bridge.sh install_haproxy_system
+  
+- name: Start the haproxy service
+  service: name=haproxy state=started enabled=yes
+  
+- name: Creates haproxy-marathon-bridge directory
+  file: path=/etc/haproxy-marathon-bridge state=directory
+  
